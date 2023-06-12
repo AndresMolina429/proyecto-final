@@ -1,0 +1,596 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "proyecto-final",
+    "contact": {},
+    "version": "1.0"
+  },
+  "servers": [
+    {
+      "url": "https://proyecto-final-ryet.onrender.com",
+      "variables": {}
+    },
+    {
+      "url": "http://localhost:8000",
+      "variables": {}
+    }
+  ],
+  "paths": {
+    "/users": {
+      "post": {
+        "tags": [
+          "Misc"
+        ],
+        "summary": "create users",
+        "operationId": "createusers",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/createusersrequest"
+                  },
+                  {
+                    "example": {
+                      "username": "andresmolina",
+                      "email": "andresg.molina429@gmail.com",
+                      "password": "12345678"
+                    }
+                  }
+                ]
+              },
+              "example": {
+                "username": "andresmolina",
+                "email": "andresg.molina429@gmail.com",
+                "password": "12345678"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "servers": [
+          {
+            "url": "https://proyecto-final-ryet.onrender.com",
+            "variables": {}
+          }
+        ]
+      }
+    },
+    "/auth/login": {
+      "post": {
+        "tags": [
+          "Misc"
+        ],
+        "summary": "login",
+        "operationId": "login",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/loginrequest"
+                  },
+                  {
+                    "example": {
+                      "email": "andresg.molina429@gmail.com",
+                      "password": "12345678"
+                    }
+                  }
+                ]
+              },
+              "example": {
+                "email": "andresg.molina429@gmail.com",
+                "password": "12345678"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "servers": [
+          {
+            "url": "https://proyecto-final-ryet.onrender.com",
+            "variables": {}
+          }
+        ]
+      }
+    },
+    "/users/1": {
+      "put": {
+        "tags": [
+          "Misc"
+        ],
+        "summary": "update user",
+        "operationId": "updateuser",
+        "parameters": [
+          {
+            "name": "access-token",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJhbmRyZXNtb2xpbmEiLCJlbWFpbCI6ImFuZHJlc2cubW9saW5hNDI5QGdtYWlsLmNvbSIsImlhdCI6MTY4NjYwMzI5NCwiZXhwIjoxNjg2Njg5Njk0fQ.Wq5iH8w2ZdgJhQpMXokbeR4gZvV2XUj4lFYm69r0ctSPXy8pDfy6QrKo_vC3Bhf7E9CNFfM3kEjecmFkgrsCyA"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/updateuserrequest"
+                  },
+                  {
+                    "example": {
+                      "username": "andresmolina",
+                      "avatar": "myprofile.png"
+                    }
+                  }
+                ]
+              },
+              "example": {
+                "username": "andresmolina",
+                "avatar": "myprofile.png"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "servers": [
+          {
+            "url": "http://localhost:8000",
+            "variables": {}
+          }
+        ]
+      }
+    },
+    "/product": {
+      "get": {
+        "tags": [
+          "Misc"
+        ],
+        "summary": "get all products",
+        "operationId": "getallproducts",
+        "parameters": [
+          {
+            "name": "access-token",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJhbmRyZXNtb2xpbmEiLCJlbWFpbCI6ImFuZHJlc2cubW9saW5hNDI5QGdtYWlsLmNvbSIsImlhdCI6MTY4NjYwMzI5NCwiZXhwIjoxNjg2Njg5Njk0fQ.Wq5iH8w2ZdgJhQpMXokbeR4gZvV2XUj4lFYm69r0ctSPXy8pDfy6QrKo_vC3Bhf7E9CNFfM3kEjecmFkgrsCyA"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "servers": [
+          {
+            "url": "http://localhost:8000",
+            "variables": {}
+          }
+        ]
+      },
+      "post": {
+        "tags": [
+          "Misc"
+        ],
+        "summary": "create produc",
+        "operationId": "createproduc",
+        "parameters": [
+          {
+            "name": "access-token",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwidXNlcm5hbWUiOiJhbmRyZXNtb2xpbmEiLCJlbWFpbCI6ImFuZHJlc2cubW9saW5hNDI5QGdtYWlsLmNvbSIsImlhdCI6MTY4NjUzOTIwMywiZXhwIjoxNjg2NjI1NjAzfQ.H3s0YooLXnjJJp8QL8Sev9mkuvfLX7viXMYRbHhSxPAmFHWrjnMMB3XOKD7ELCfGxOp1kMvimKDJMObEi-Pz6A"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/createproducrequest"
+                  },
+                  {
+                    "example": {
+                      "name": "Iphone XX",
+                      "description": "SmartPhone que no ha llegado",
+                      "price": "12000",
+                      "availableQty": "12",
+                      "userId": "1",
+                      "productImage": "image_avatar.png"
+                    }
+                  }
+                ]
+              },
+              "example": {
+                "name": "Iphone XX",
+                "description": "SmartPhone que no ha llegado",
+                "price": "12000",
+                "availableQty": "12",
+                "userId": "1",
+                "productImage": "image_avatar.png"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "servers": [
+          {
+            "url": "http://localhost:8000",
+            "variables": {}
+          }
+        ]
+      }
+    },
+    "/product/incar": {
+      "post": {
+        "tags": [
+          "Misc"
+        ],
+        "summary": "create product in car",
+        "operationId": "createproductincar",
+        "parameters": [
+          {
+            "name": "access-token",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwidXNlcm5hbWUiOiJhbmRyZXNtb2xpbmEiLCJlbWFpbCI6ImFuZHJlc2cubW9saW5hNDI5QGdtYWlsLmNvbSIsImlhdCI6MTY4NjUzOTIwMywiZXhwIjoxNjg2NjI1NjAzfQ.H3s0YooLXnjJJp8QL8Sev9mkuvfLX7viXMYRbHhSxPAmFHWrjnMMB3XOKD7ELCfGxOp1kMvimKDJMObEi-Pz6A"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/createproductincarrequest"
+                  },
+                  {
+                    "example": {
+                      "productId": "4",
+                      "quantity": "3"
+                    }
+                  }
+                ]
+              },
+              "example": {
+                "productId": "4",
+                "quantity": "3"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "servers": [
+          {
+            "url": "http://localhost:8000",
+            "variables": {}
+          }
+        ]
+      }
+    },
+    "/product/1": {
+      "put": {
+        "tags": [
+          "Misc"
+        ],
+        "summary": "update product",
+        "operationId": "updateproduct",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/updateproductrequest"
+                  },
+                  {
+                    "example": {
+                      "description": "SmartPhone que no ha llegado, pero pues debo tener paciencia"
+                    }
+                  }
+                ]
+              },
+              "example": {
+                "description": "SmartPhone que no ha llegado, pero pues debo tener paciencia"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "servers": [
+          {
+            "url": "http://localhost:8000",
+            "variables": {}
+          }
+        ]
+      }
+    },
+    "/auth/email-validate": {
+      "put": {
+        "tags": [
+          "Misc"
+        ],
+        "summary": "email validate",
+        "operationId": "emailvalidate",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/emailvalidaterequest"
+                  },
+                  {
+                    "example": {
+                      "token": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFuZHJlc20iLCJlbWFpbCI6ImFuZHJlc21Ac3RjLXNhcy5jb20iLCJpYXQiOjE2ODU1ODA1MzQsImV4cCI6MTY4NTYyMzczNH0.YflUS9U5JJN3DmJxveqX_CbdquvbheGhxezAvl-BqwIqKrIu8bkrZpEf02nmZt0gYvEEyRNk8HndObtDZbys5g"
+                    }
+                  }
+                ]
+              },
+              "example": {
+                "token": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFuZHJlc20iLCJlbWFpbCI6ImFuZHJlc21Ac3RjLXNhcy5jb20iLCJpYXQiOjE2ODU1ODA1MzQsImV4cCI6MTY4NTYyMzczNH0.YflUS9U5JJN3DmJxveqX_CbdquvbheGhxezAvl-BqwIqKrIu8bkrZpEf02nmZt0gYvEEyRNk8HndObtDZbys5g"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "servers": [
+          {
+            "url": "http://localhost:8000",
+            "variables": {}
+          }
+        ]
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "createusersrequest": {
+        "title": "createusersrequest",
+        "required": [
+          "username",
+          "email",
+          "password"
+        ],
+        "type": "object",
+        "properties": {
+          "username": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "username": "andresmolina",
+          "email": "andresg.molina429@gmail.com",
+          "password": "12345678"
+        }
+      },
+      "loginrequest": {
+        "title": "loginrequest",
+        "required": [
+          "email",
+          "password"
+        ],
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "email": "andresg.molina429@gmail.com",
+          "password": "12345678"
+        }
+      },
+      "updateuserrequest": {
+        "title": "updateuserrequest",
+        "required": [
+          "username",
+          "avatar"
+        ],
+        "type": "object",
+        "properties": {
+          "username": {
+            "type": "string"
+          },
+          "avatar": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "username": "andresmolina",
+          "avatar": "myprofile.png"
+        }
+      },
+      "createproducrequest": {
+        "title": "createproducrequest",
+        "required": [
+          "name",
+          "description",
+          "price",
+          "availableQty",
+          "userId",
+          "productImage"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "price": {
+            "type": "string"
+          },
+          "availableQty": {
+            "type": "string"
+          },
+          "userId": {
+            "type": "string"
+          },
+          "productImage": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "name": "Iphone XX",
+          "description": "SmartPhone que no ha llegado",
+          "price": "12000",
+          "availableQty": "12",
+          "userId": "1",
+          "productImage": "image_avatar.png"
+        }
+      },
+      "createproductincarrequest": {
+        "title": "createproductincarrequest",
+        "required": [
+          "productId",
+          "quantity"
+        ],
+        "type": "object",
+        "properties": {
+          "productId": {
+            "type": "string"
+          },
+          "quantity": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "productId": "4",
+          "quantity": "3"
+        }
+      },
+      "updateproductrequest": {
+        "title": "updateproductrequest",
+        "required": [
+          "description"
+        ],
+        "type": "object",
+        "properties": {
+          "description": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "description": "SmartPhone que no ha llegado, pero pues debo tener paciencia"
+        }
+      },
+      "emailvalidaterequest": {
+        "title": "emailvalidaterequest",
+        "required": [
+          "token"
+        ],
+        "type": "object",
+        "properties": {
+          "token": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "token": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFuZHJlc20iLCJlbWFpbCI6ImFuZHJlc21Ac3RjLXNhcy5jb20iLCJpYXQiOjE2ODU1ODA1MzQsImV4cCI6MTY4NTYyMzczNH0.YflUS9U5JJN3DmJxveqX_CbdquvbheGhxezAvl-BqwIqKrIu8bkrZpEf02nmZt0gYvEEyRNk8HndObtDZbys5g"
+        }
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Misc",
+      "description": ""
+    }
+  ]
+}
