@@ -55,14 +55,15 @@ const createProductInCar = async (req, res, next) => {
 
 const getAllProducts = async (req, res, next) => {
   try {
-    const allProducts = await ProductServices.getAllProduct()
+    const allProducts = await ProductServices.getAllProducts()
+    console.log(allProducts);
     res.status(200).json(allProducts);
   } catch (error) {
     console.log(error)
     next({
       status: 400,
-      name: "Invalid Create Product",
-      message: "Error en la creación del producto"
+      name: "Invalid get Products",
+      message: "Error en la consulta de productos"
     });
   }
 };

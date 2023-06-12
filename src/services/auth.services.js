@@ -1,10 +1,11 @@
 const jwt = require('jsonwebtoken');
 const bcrypt = require("bcrypt");
+require("dotenv").config();
 
 class AuthServices {
     static genToken(payload) {
         try {
-            const token = jwt.sign(payload, 'pasar128', {
+            const token = jwt.sign(payload, process.env.SECRET_KEY, {
                 algorithm: 'HS512',
                 expiresIn: '1d'
             })
@@ -16,7 +17,7 @@ class AuthServices {
 
     static verifyToken(token) {
         try {
-            const decoded = jwt.verify(token, 'pasar128', {
+            const decoded = jwt.verify(token, process.env.SECRET_KEY, {
                 algorithms: "HS512"
             });
             return decoded;

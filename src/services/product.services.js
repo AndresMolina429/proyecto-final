@@ -1,5 +1,7 @@
 const Product = require('../models/product.model');
 const ProductInCar = require('../models/productInCar.model');
+const Users = require('../models/users.model');
+const { Op } = require("sequelize");
 
 class ProductServices {
 
@@ -46,6 +48,7 @@ class ProductServices {
     static async createProductInCar(newProductInCar) {
         try {
             const { productId, carId, quantity, price } = newProductInCar;
+            //
             const productInCarCreated = ProductInCar.findOrCreate({
                 where: { productId }, 
                 defaults: { carId, quantity, price },
@@ -60,9 +63,16 @@ class ProductServices {
     static async getAllProducts() {
         try {
             const allProducts = Product.findAll({
-                where: { 
-                    [ Op.gt ]: 0
-                 }, 
+                attributes: [ 'id', 'name', 'description', 'price', 'availableQty'],
+                include: {
+                    model: Users,
+                    attributes: [ 'username']
+                },
+                where: {
+                    availableQty: {
+                        [ Op.gt ]: 0,
+                 },
+                }
             })
             return allProducts
         } catch (error) {

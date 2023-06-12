@@ -34,7 +34,7 @@ const createProductValidator = [
     .withMessage("No se esta enviando la cantidad de stock del producto")
     .notEmpty()
     .withMessage("La cantidad no puede esta vacia"),
-  check("user_id", "Error en el usuario")
+  check("userId", "Error en el usuario")
     .exists()
     .withMessage("No se esta enviando el usuario")
     .notEmpty()

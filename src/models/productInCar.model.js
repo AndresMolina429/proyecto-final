@@ -26,8 +26,8 @@ const ProductInCar = db.define(
       allowNull: false,
     },
     status: {
-      type: DataTypes.BOOLEAN,
-      defaultValue: false
+      type: DataTypes.STRING(20),
+      defaultValue: 'notPurchased'
     },
   },
   {
